@@ -5,28 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 13:59:15 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/09/28 08:03:27 by adel-sol         ###   ########.fr       */
+/*   Created: 2021/09/27 08:12:41 by adel-sol          #+#    #+#             */
+/*   Updated: 2021/09/27 08:19:45 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include <iostream>
+#include <string>
+
+using std::string;
+using std::cout;
+using std::endl;
 
 int		main( void ) {
 
-	Karen	karen;
-
-	std::cout << "DEBUG : ";
-	karen.complain( "DEBUG" );
-
-	std::cout << "INFO : ";
-	karen.complain( "INFO" );
-
-	std::cout << "WARNING : ";
-	karen.complain( "WARNING" );
-
-	std::cout << "ERROR : ";
-	karen.complain( "ERROR" );
+	string	str = "HI THIS IS BRAIN";
 	
+	string*	stringPtr = &str;
+	string&	stringRef = str;
+
+	cout << "&str : " << &str << endl;
+	cout << "stringPtr : " << stringPtr << endl;
+	cout << "&stringRef : " << &stringRef << endl;
+
+	cout << endl;
+
+	cout << "*stringPtr : " << *stringPtr << endl;
+	cout << "stringRef : " << stringRef << endl;
+
 	return 0;
 }

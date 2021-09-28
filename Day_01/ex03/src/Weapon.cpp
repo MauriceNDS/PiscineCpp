@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 13:59:15 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/09/28 08:03:27 by adel-sol         ###   ########.fr       */
+/*   Created: 2021/09/27 08:55:00 by adel-sol          #+#    #+#             */
+/*   Updated: 2021/09/27 11:25:45 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Weapon.hpp"
 
-int		main( void ) {
+Weapon::Weapon( std::string type ) : _type( type ) {}
 
-	Karen	karen;
+std::string const & Weapon::getType( void ) const {
+	return this->_type;
+}
 
-	std::cout << "DEBUG : ";
-	karen.complain( "DEBUG" );
-
-	std::cout << "INFO : ";
-	karen.complain( "INFO" );
-
-	std::cout << "WARNING : ";
-	karen.complain( "WARNING" );
-
-	std::cout << "ERROR : ";
-	karen.complain( "ERROR" );
-	
-	return 0;
+void	Weapon::setType( std::string type ) {
+	this->_type = type;
 }

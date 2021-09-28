@@ -5,28 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 13:59:15 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/09/28 08:03:27 by adel-sol         ###   ########.fr       */
+/*   Created: 2021/09/27 08:55:52 by adel-sol          #+#    #+#             */
+/*   Updated: 2021/09/27 11:44:40 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int		main( void ) {
-
-	Karen	karen;
-
-	std::cout << "DEBUG : ";
-	karen.complain( "DEBUG" );
-
-	std::cout << "INFO : ";
-	karen.complain( "INFO" );
-
-	std::cout << "WARNING : ";
-	karen.complain( "WARNING" );
-
-	std::cout << "ERROR : ";
-	karen.complain( "ERROR" );
-	
-	return 0;
+int main()
+{
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 }

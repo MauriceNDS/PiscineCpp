@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 13:59:15 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/09/28 08:03:27 by adel-sol         ###   ########.fr       */
+/*   Created: 2021/09/24 09:37:55 by adel-sol          #+#    #+#             */
+/*   Updated: 2021/09/27 08:04:44 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#pragma once
 
-int		main( void ) {
+#include <iostream>
+#include <string>
 
-	Karen	karen;
+using std::string;
+using std::cout;
+using std::endl;
 
-	std::cout << "DEBUG : ";
-	karen.complain( "DEBUG" );
+class Zombie {
 
-	std::cout << "INFO : ";
-	karen.complain( "INFO" );
+    private:
+        string  _name;
 
-	std::cout << "WARNING : ";
-	karen.complain( "WARNING" );
+    public:
+        Zombie( void );
+        Zombie( string str );
+        ~Zombie( void );
 
-	std::cout << "ERROR : ";
-	karen.complain( "ERROR" );
-	
-	return 0;
-}
+        void    setName( string name );
+        void    announce( void );
+        
+};
+
+Zombie* zombieHorde( int N, string name );

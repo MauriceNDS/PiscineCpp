@@ -5,28 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 13:59:15 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/09/28 08:03:27 by adel-sol         ###   ########.fr       */
+/*   Created: 2021/09/24 09:37:58 by adel-sol          #+#    #+#             */
+/*   Updated: 2021/09/27 08:08:57 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Zombie.hpp"
 
-int		main( void ) {
+int     main( void ) {
 
-	Karen	karen;
+    Zombie* horde;
 
-	std::cout << "DEBUG : ";
-	karen.complain( "DEBUG" );
+    horde = zombieHorde( 42, "Prototype-1" );
 
-	std::cout << "INFO : ";
-	karen.complain( "INFO" );
+    for ( int i = 0; i < 42; i++ )
+        horde[i].announce();
 
-	std::cout << "WARNING : ";
-	karen.complain( "WARNING" );
+    delete[] horde;
 
-	std::cout << "ERROR : ";
-	karen.complain( "ERROR" );
-	
-	return 0;
+    return 0;
 }

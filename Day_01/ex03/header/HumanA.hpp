@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 13:59:15 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/09/28 08:03:27 by adel-sol         ###   ########.fr       */
+/*   Created: 2021/09/27 08:54:31 by adel-sol          #+#    #+#             */
+/*   Updated: 2021/09/27 11:03:33 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#pragma once
 
-int		main( void ) {
+#include <iostream>
+#include "Weapon.hpp"
 
-	Karen	karen;
+class HumanA {
 
-	std::cout << "DEBUG : ";
-	karen.complain( "DEBUG" );
+	private:
 
-	std::cout << "INFO : ";
-	karen.complain( "INFO" );
+		std::string	_name;
+		Weapon&		_weapon;
 
-	std::cout << "WARNING : ";
-	karen.complain( "WARNING" );
+	public:
 
-	std::cout << "ERROR : ";
-	karen.complain( "ERROR" );
+		HumanA( std::string name, Weapon& weapon );
+
+		void	attack( void ) const;
 	
-	return 0;
-}
+};

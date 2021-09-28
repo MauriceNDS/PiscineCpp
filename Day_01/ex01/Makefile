@@ -8,9 +8,8 @@ HEADER = header/Zombie.hpp
 INCLUDES = -I./header
 
 SRCS =	src/main.cpp				\
-		src/newZombie.cpp			\
-		src/randomChump.cpp			\
-		src/Zombie.cpp
+		src/Zombie.cpp				\
+		src/ZombieHorde.cpp
 
 
 OBJS = $(SRCS:.cpp=.o)

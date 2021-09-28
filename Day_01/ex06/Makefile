@@ -2,30 +2,26 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = header/Zombie.hpp
-
+HEADER = Karen.hpp
 
 INCLUDES = -I./header
 
-SRCS =	src/main.cpp				\
-		src/newZombie.cpp			\
-		src/randomChump.cpp			\
-		src/Zombie.cpp
-
+SRCS =	Karen.cpp			\
+		main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = zombie
+MAIN = karenFilter
 
 RM = rm -rf
 
 all:    $(MAIN)
 
-$(MAIN): $(OBJS) $(HEADER)
+$(MAIN): $(OBJS)
 		$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
 
 %.o: %.cpp	$(HEADER)
-		$(CC) $(CFLAGS) -c $<  -o $@ $(INCLUDES)
+		$(CC) $(CFLAGS) -c $<  -o $@
 
 clean:
 		$(RM) $(OBJS)

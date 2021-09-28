@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 13:59:15 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/09/28 08:03:27 by adel-sol         ###   ########.fr       */
+/*   Created: 2021/09/27 08:55:34 by adel-sol          #+#    #+#             */
+/*   Updated: 2021/09/27 11:43:37 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "HumanB.hpp"
 
-int		main( void ) {
+HumanB::HumanB( std::string name ) : _name( name ) {
+	this->_weapon = nullptr;
+}
 
-	Karen	karen;
+void	HumanB::attack( void ) const {
+	std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
+}
 
-	std::cout << "DEBUG : ";
-	karen.complain( "DEBUG" );
-
-	std::cout << "INFO : ";
-	karen.complain( "INFO" );
-
-	std::cout << "WARNING : ";
-	karen.complain( "WARNING" );
-
-	std::cout << "ERROR : ";
-	karen.complain( "ERROR" );
-	
-	return 0;
+void	HumanB::setWeapon( Weapon& weapon ) {
+	this->_weapon = &weapon;
 }

@@ -2,30 +2,25 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = header/Zombie.hpp
-
+#HEADER = header/Zombie.hpp
 
 INCLUDES = -I./header
 
-SRCS =	src/main.cpp				\
-		src/newZombie.cpp			\
-		src/randomChump.cpp			\
-		src/Zombie.cpp
-
+SRCS =	main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-MAIN = zombie
+MAIN = replace
 
 RM = rm -rf
 
 all:    $(MAIN)
 
-$(MAIN): $(OBJS) $(HEADER)
+$(MAIN): $(OBJS)
 		$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
 
-%.o: %.cpp	$(HEADER)
-		$(CC) $(CFLAGS) -c $<  -o $@ $(INCLUDES)
+%.o: %.cpp	#$(HEADER)
+		$(CC) $(CFLAGS) -c $<  -o $@
 
 clean:
 		$(RM) $(OBJS)

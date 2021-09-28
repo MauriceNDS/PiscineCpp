@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 13:59:15 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/09/28 08:03:27 by adel-sol         ###   ########.fr       */
+/*   Created: 2021/09/27 08:55:12 by adel-sol          #+#    #+#             */
+/*   Updated: 2021/09/27 11:03:36 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "HumanA.hpp"
 
-int		main( void ) {
+HumanA::HumanA( std::string name, Weapon& weapon ) : _name( name ), _weapon( weapon ) {}
 
-	Karen	karen;
-
-	std::cout << "DEBUG : ";
-	karen.complain( "DEBUG" );
-
-	std::cout << "INFO : ";
-	karen.complain( "INFO" );
-
-	std::cout << "WARNING : ";
-	karen.complain( "WARNING" );
-
-	std::cout << "ERROR : ";
-	karen.complain( "ERROR" );
-	
-	return 0;
+void	HumanA::attack( void ) const {
+	std::cout << this->_name << " attacks with his " << this->_weapon.getType() << std::endl;
 }
