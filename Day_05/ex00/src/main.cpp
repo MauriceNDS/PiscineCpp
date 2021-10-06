@@ -6,7 +6,7 @@
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 08:35:17 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/10/05 08:57:06 by adel-sol         ###   ########.fr       */
+/*   Updated: 2021/10/06 09:34:14 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,20 @@ int		main( void ) {
 	std::cout << jack << std::endl;
 	std::cout << bob << std::endl;
 
-	jack.gradeDec();
-	jack.gradeDec();
-	jack.gradeDec();
-	jack.gradeDec();
-	bob.gradeInc();
-	bob.gradeInc();
-	bob.gradeInc();
-	bob.gradeInc();
-
+	try {
+		jack.gradeDec();
+		jack.gradeDec();
+		jack.gradeDec();
+		jack.gradeDec();
+		bob.gradeInc();
+		bob.gradeInc();
+		bob.gradeInc();
+		bob.gradeInc();
+	}
+	catch ( std::exception& e ) {
+		std::cout << e.what() << std::endl;
+	}
+	
 	std::cout << jack << std::endl;
 	std::cout << bob << std::endl;
 

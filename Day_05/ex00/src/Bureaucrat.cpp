@@ -6,7 +6,7 @@
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 08:19:17 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/10/05 10:08:11 by adel-sol         ###   ########.fr       */
+/*   Updated: 2021/10/06 09:32:21 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ size_t				Bureaucrat::getGrade( void ) const {
 
 void				Bureaucrat::gradeInc( void ) {
 	if ( this->_grade == 1 )
-		return ;
+		throw Bureaucrat::GradeTooHighException();
 	this->_grade--;	
 }
 
 void				Bureaucrat::gradeDec( void ) {
 	if ( this->_grade == 150 )
-		return ;
+		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;	
 }
 

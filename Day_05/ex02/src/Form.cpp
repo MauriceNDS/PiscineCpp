@@ -6,14 +6,19 @@
 /*   By: adel-sol <adel-sol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:23:46 by adel-sol          #+#    #+#             */
-/*   Updated: 2021/10/05 15:18:42 by adel-sol         ###   ########.fr       */
+/*   Updated: 2021/10/06 09:30:24 by adel-sol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 Form::Form( std::string name, size_t toSign, size_t toExecute ) : _name( name ),
-_gToExecute( toExecute ), _gToSign( toSign ), _signed( false ) {}
+_gToExecute( toExecute ), _gToSign( toSign ), _signed( false ) {
+	if ( this->_gToExecute > 150 || this->_gToSign > 150 )
+		throw Form::GradeTooLowException();
+	else if ( this->_gToExecute < 1 || this->_gToSign < 1 )
+		throw Form::GradeTooHighException();
+}
 
 Form::Form( Form const & copy ) : _name( copy._name ), _gToExecute( copy._gToExecute ),
 _gToSign( copy._gToSign ), _signed( copy._signed ) {}
