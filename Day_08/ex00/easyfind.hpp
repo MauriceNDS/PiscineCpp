@@ -1,15 +1,15 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
+# include <algorithm>
 # include <iterator>
 
 template< typename T >
-int&		easyfind( T const & container, int toFind ) {
-	for ( typename T::iterator it = container.begin(); it != container.end(); it++ ) {
-		if ( *it == toFind )
-			return it;
-	}
-	throw std::exception();
+int&		easyfind( T & container, int toFind ) {
+	typename T::iterator it = std::find( container.begin(), container.end(), toFind );
+	if ( it == container.end() )
+		throw std::exception();
+	return *it;
 }
 
 #endif
