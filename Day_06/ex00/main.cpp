@@ -1,6 +1,21 @@
 #include <iostream>
 #include <string.h>
+#include <iomanip>
 #include <math.h>
+
+int		getPrecision( char* str ) {
+	int		i = -1;
+	int		j = 0;
+	bool	checker = false;
+
+	while ( str[++i] ) {
+		if ( str[i] == '.' )
+			checker = true;
+		if ( checker && str[i] >= '0' && str[i] <= '9' )
+			j++;
+	}
+	return ( j == 0 ) ? 1 : j;
+}
 
 int		main( int argc, char **argv ) {
 
@@ -11,6 +26,7 @@ int		main( int argc, char **argv ) {
 	int			i;
 	float		f;
 	double		d;
+
 
 	d = atof( argv[1] );
 	i = static_cast<int>( d );
@@ -27,13 +43,9 @@ int		main( int argc, char **argv ) {
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
-	if ( f - i == 0 )
-		std::cout << "float: " << f << ".0f" << std::endl;
-	else
-		std::cout << "float: " << f << "f" << std::endl;
-	if ( d - i == 0 )
-		std::cout << "double: " << d << ".0" << std::endl;
-	else
-		std::cout << "double: " << d << std::endl;
+	std::cout << std::fixed;
+	std::cout << std::setprecision( getPrecision( argv[1] ) );
+	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "double: " << d << std::endl;
 	return 0;
 }
